@@ -20,3 +20,5 @@ inquirer
         message:'Which one to three letters would you like on the logo?'
     }
 ])
+
+modules.export = input({shape, color, letters})
