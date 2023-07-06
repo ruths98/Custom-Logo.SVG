@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const jest = require ('jest');
+const fs = require('fs');
 
 inquirer
 .prompt ([
@@ -11,8 +12,13 @@ inquirer
     },
     {
         type:'input',
-        name:'color',
-        message:'What color would you like the logo to be? You may enter a name (red, yellow, blue, etc), or a hexadecimal number (like E06910)'
+        name:'textColor',
+        message:'What color would you like the font to be? You may enter a name (red, yellow, blue, etc), or a hexadecimal number (like E06910)'
+    },
+    {
+        type:'input',
+        name:'bgColor',
+        message:'What color would you like the shape/background to be? You may enter a name (red, yellow, blue, etc), or a hexadecimal number (like E06910)'
     },
     {
         type:'input',
@@ -20,5 +26,19 @@ inquirer
         message:'Which one to three letters would you like on the logo?'
     }
 ])
+
+function createSVG(answers) {
+
+  fs.writeFile('logo.svg', svg, (err) => {
+    const { shape, textColor, bgColor, letters } = answers;
+
+    if (err) {
+      console.error('Error saving SVG file:', err);
+    } else {
+      console.log('SVG file saved successfully!');
+    }
+  });
+}
+
 
 modules.export = input({shape, color, letters})
