@@ -3,6 +3,9 @@ const jest = require ('jest');
 const fs = require('fs');
 const { Circle, Square, Triangle} = require("./lib/shapes.js")
 
+// let ns = "http://www.link.com/svg"//ns is name space
+// let svg = document.createElementNS(ns, "svg");
+
 inquirer
 .prompt ([
     {
@@ -28,35 +31,31 @@ inquirer
     }
 ])
 
-//create a class for Svg
-class Svg{
-  constructor(){
-    this.textElement=''
-    this.shapeElement=''
-  }
-  render(){
-    return `<sbg version='1.1' xmlns="http://www.w3.org/2000/ssvg" width="300" height="200" />`
-  }
-  setTextElement(text, color){
-    this.textElement = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${letters}</text>`
-  }
-  setShapeElement(shape){
-    this.shapeElement = shape.render()
-  }
-}
+//after the prompt we will run the answers (response) through our createSVG function and save this as a variable svgContent
+.then((answers) => {
+  const svgContent = createSVG(answers)
 
-function createSVG(answers) {
-
-  fs.writeFile('logo.svg', svg, (err) => {
-    const { shape, textColor, bgColor, letters } = answers;
-
+fs.writeFile('logo.svg', svgContent, (err) => {
     if (err) {
       console.error('Error saving SVG file:', err);
     } else {
       console.log('SVG file saved successfully!');
     }
   });
+});
+
+//function to initialize app
+function init() {
+  console.log('node index.js')
+}
+init();
+
+
+const { shape, textColor, bgColor, text } = answers;  
+const createSVG = (answers) => {
+  return shape.render();
 }
 
 
-modules.export = input({shape, color, text})
+
+modules.export = answers({shape, textColor, bgColor, text})
