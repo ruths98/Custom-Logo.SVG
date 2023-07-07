@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const jest = require ('jest');
-const fs = require('fs');
-const { Circle, Square, Triangle} = require("./lib/shapes.js")
+const createSVG = require('./lib/shapes')
 
 // let ns = "http://www.link.com/svg"//ns is name space
 // let svg = document.createElementNS(ns, "svg");
@@ -49,13 +48,5 @@ function init() {
   console.log('node index.js')
 }
 init();
-
-
-const { shape, textColor, bgColor, text } = answers;  
-const createSVG = (answers) => {
-  return shape.render();
-}
-
-
 
 modules.export = answers({shape, textColor, bgColor, text})
