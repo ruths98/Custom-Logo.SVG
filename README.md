@@ -13,9 +13,9 @@ To contact me on github visit this url: https://github.com/ruths98
 The url to the repository of this project is as follows: https://github.com/ruths98/Custom-Logo.SVG
 
 Screenshots of the project:
-![Screenshot of project](/Custom-Logo.SVG/screenshots/oop1.png)
-![Screenshot of project](/Custom-Logo.SVG/screenshots/oop2.png)
-![Screenshot of project](/Custom-Logo.SVG/screenshots/oop3.png)
+![Screenshot of project](./screenshots/oop1.png)
+![Screenshot of project](./screenshots/oop2.png)
+![Screenshot of project](./screenshots/oop3.png)
 
 ## Credits
  n/a
