@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const jest = require ('jest');
-const createSVG = require('./lib/shapes')
+const {createSVG} = require('./lib/shapes')
+const fs = require('fs')
 
 // let ns = "http://www.link.com/svg"//ns is name space
 // let svg = document.createElementNS(ns, "svg");
@@ -43,10 +44,5 @@ fs.writeFile('logo.svg', svgContent, (err) => {
   });
 });
 
-//function to initialize app
-function init() {
-  console.log('node index.js')
-}
-init();
 
-modules.export = answers({shape, textColor, bgColor, text})
+

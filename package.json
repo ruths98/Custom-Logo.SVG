@@ -1,6 +1,12 @@
 {
   "dependencies": {
-    "inquirer": "^8.0.0",
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
     "jest": "^29.6.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "jest --config ./jest.config.json"
   }
 }
